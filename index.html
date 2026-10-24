@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bernard's Quik Mart &amp; Laundromat | Summerside, PEI</title>
+<meta name="description" content="Bernard's Quik Mart & Laundromat at 126 Bayview Dr, Summerside, PEI. Convenience store with groceries, lottery, gift cards, pet & camping supplies, plus a clean, bright coin laundromat. Open 7 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@1,112,800;1,112,900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ConvenienceStore",
+  "name": "Bernard's Quik Mart & Laundromat",
+  "telephone": "+1-902-436-8609",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "126 Bayview Dr",
+    "addressLocality": "Summerside",
+    "addressRegion": "PE",
+    "postalCode": "C1N 4A1",
+    "addressCountry": "CA"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 46.4047012, "longitude": -63.8157086 },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:00", "closes": "22:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "07:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "08:00", "closes": "21:00" }
+  ],
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "52" },
+  "sameAs": ["https://www.facebook.com/p/Bernards-Quik-Mart-61558698375249/"]
+}
+</script>
+<style>
+  :root {
+    --font-title: "Archivo", "Arial Black", Impact, sans-serif;
+    --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    --bg: #fbf8f2;
+    --surface: #ffffff;
+    --surface-2: #f2ede3;
+    --ink: #1c2430;
+    --ink-soft: #4d5868;
+    --line: #e4ddd0;
+    --brand: #0f4c81;
+    --brand-ink: #ffffff;
+    --accent: #f7c51e;
+    --accent-ink: #1d1a14;
+    --sky: #fdf1c4;
+    --tile: rgba(15, 76, 129, .045);
+    --tile-red: rgba(200, 32, 40, .035);
+    --tile-red-base: #ffffff;
+    --ok: #1f8a4c;
+    --closed: #b3412e;
+    --shadow: 0 1px 2px rgba(20,30,45,.06), 0 8px 24px rgba(20,30,45,.07);
+    --radius: 18px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10151c;
+      --surface: #18202a;
+      --surface-2: #1f2934;
+      --ink: #eef2f6;
+      --ink-soft: #a9b4c2;
+      --line: #2c3845;
+      --brand: #5aa3e6;
+      --brand-ink: #0b1420;
+      --accent: #f7c51e;
+      --accent-ink: #1d1a14;
+      --sky: #3a2f12;
+      --tile: rgba(255, 255, 255, .028);
+      --tile-red: rgba(230, 70, 70, .035);
+      --tile-red-base: #1a1d24;
+      --ok: #4cc983;
+      --closed: #ef7a66;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #10151c; --surface: #18202a; --surface-2: #1f2934; --ink: #eef2f6; --ink-soft: #a9b4c2;
+    --line: #2c3845; --brand: #5aa3e6; --brand-ink: #0b1420; --sky: #3a2f12; --tile: rgba(255, 255, 255, .028); --tile-red: rgba(230, 70, 70, .035); --tile-red-base: #1a1d24; --ok: #4cc983; --closed: #ef7a66;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    /* Checkered tile texture, after the laundromat floor */
+    background-image: conic-gradient(var(--tile) 25%, transparent 0 50%, var(--tile) 0 75%, transparent 0);
+    background-size: 88px 88px;
+    color: var(--ink);
+    font: 16px/1.6 var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  img, iframe { max-width: 100%; }
+  a { color: var(--brand); }
+  h1, h2, h3 { font-family: var(--font-title); font-style: italic; font-weight: 900; font-stretch: 112%; line-height: 1.05; margin: 0; letter-spacing: -.02em; }
+  h2 { color: var(--brand); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 28px; } }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(1.4) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 12px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); text-decoration: none; }
+  .logo-mark {
+    width: 36px; height: 36px; border-radius: 10px; background: #f7c51e; color: #0f4c81; box-shadow: inset 0 0 0 2px #0f4c81;
+    display: grid; place-items: center; font-family: var(--font-title); font-style: italic; font-size: 22px; font-weight: 900;
+  }
+  .logo-name { font-weight: 800; font-size: 15px; line-height: 1.2; white-space: nowrap; }
+  @media (min-width: 560px) { .logo-name { font-size: 17px; } }
+  .nav .nav-call { display: none; }
+  @media (min-width: 860px) { .nav .nav-call { display: inline-flex; } }
+  .nav-links { display: none; gap: 24px; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-weight: 500; font-size: 15px; }
+  .nav-links a:hover { color: var(--ink); }
+  @media (min-width: 860px) { .nav-links { display: flex; } }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;
+    text-decoration: none; border: 1.5px solid transparent; white-space: nowrap;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn-primary { background: var(--brand); color: var(--brand-ink); }
+  .btn-accent { background: var(--accent); color: var(--accent-ink); }
+  .btn-ghost { border-color: var(--line); color: var(--ink); background: var(--surface); }
+  .btn-sm { padding: 9px 16px; font-size: 14px; }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+
+  /* Hero */
+  .hero {
+    position: relative; isolation: isolate; color: #fff; overflow: hidden;
+    min-height: min(88vh, 760px); display: flex; align-items: flex-end;
+    padding: 120px 0 56px;
+  }
+  @media (min-width: 900px) { .hero { padding: 160px 0 80px; align-items: center; } }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; max-width: none;
+    object-fit: cover; object-position: center 55%;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background:
+      linear-gradient(180deg, rgba(18,14,12,.35) 0%, rgba(18,14,12,.15) 35%, rgba(18,14,12,.82) 100%),
+      linear-gradient(90deg, rgba(18,14,12,.7) 0%, rgba(18,14,12,.1) 70%);
+  }
+  .hero-content { max-width: 760px; }
+  .status {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); backdrop-filter: blur(6px);
+    font-size: 14px; font-weight: 600; color: #fff;
+  }
+  .status .dot { width: 8px; height: 8px; border-radius: 50%; background: #c9d5e2; }
+  .status.open .dot { background: #4cc983; box-shadow: 0 0 0 4px rgba(76,201,131,.25); }
+  .status.closed .dot { background: #ff8a75; }
+  .hero h1 {
+    font-size: clamp(40px, 7.6vw, 84px); margin: 18px 0 18px; color: #0f4c81;
+    -webkit-text-stroke: .09em #fff; paint-order: stroke fill;
+    filter: drop-shadow(0 4px 18px rgba(0,0,0,.45));
+  }
+  .hero h1 .welcome {
+    display: block; font: 700 clamp(18px, 2.4vw, 26px)/1.2 var(--font-body); font-style: normal; letter-spacing: .04em;
+    color: #fff; -webkit-text-stroke: 0; margin-bottom: 10px;
+  }
+  .hero p.lead { font-size: clamp(17px, 2.2vw, 20px); color: rgba(255,255,255,.9); max-width: 34em; margin: 0 0 28px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .hero .btn-ghost { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.4); color: #fff; backdrop-filter: blur(6px); }
+  .rating-chip { display: flex; align-items: center; gap: 10px; margin-top: 28px; color: rgba(255,255,255,.85); font-size: 15px; }
+  .stars { color: var(--accent); letter-spacing: 1px; font-size: 18px; }
+  .rating-chip b { color: #fff; }
+  .hero .addr { margin-top: 10px; font-size: 15px; color: rgba(255,255,255,.8); }
+
+  /* Sections */
+  section { padding: 56px 0; }
+  @media (min-width: 900px) { section { padding: 80px 0; } }
+  .eyebrow { text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; color: var(--brand); margin-bottom: 10px; }
+  .section-head { max-width: 640px; margin-bottom: 36px; }
+  .section-head h2 { font-size: clamp(30px, 4.5vw, 44px); }
+  .section-head p { color: var(--ink-soft); margin: 12px 0 0; font-size: 17px; }
+
+  /* Red and white checkered tiles, after the store floor */
+  .alt {
+    background-color: var(--tile-red-base);
+    background-image: conic-gradient(var(--tile-red) 25%, transparent 0 50%, var(--tile-red) 0 75%, transparent 0);
+    background-size: 88px 88px;
+  }
+
+  /* Store grid */
+  .grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  @media (min-width: 560px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px;
+  }
+  .icon {
+    width: 44px; height: 44px; border-radius: 12px; background: var(--sky); color: var(--brand);
+    display: grid; place-items: center; margin-bottom: 14px;
+  }
+  .icon svg { width: 22px; height: 22px; }
+  .card h3 { font-family: var(--font-body); font-style: normal; font-stretch: normal; color: var(--ink); font-size: 18px; font-weight: 700; margin-bottom: 6px; letter-spacing: 0; }
+  .card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+
+  /* Laundry */
+  .laundry-grid { display: grid; gap: 28px; }
+  @media (min-width: 900px) { .laundry-grid { grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; } }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 14px; text-align: center; }
+  .stat .n { font-family: var(--font-title); font-style: italic; font-size: 36px; font-weight: 900; color: var(--brand); line-height: 1; }
+  .stat .l { font-size: 13px; color: var(--ink-soft); margin-top: 6px; }
+  .checks { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .checks li { display: flex; gap: 12px; align-items: flex-start; }
+  .checks li svg { flex: none; width: 22px; height: 22px; color: var(--ok); margin-top: 1px; }
+  .tip {
+    margin-top: 24px; padding: 16px 18px; border-radius: 14px; background: color-mix(in srgb, var(--accent) 18%, var(--surface));
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); font-size: 15px;
+  }
+
+  .laundry-photo { display: block; width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); }
+
+  /* Gallery */
+  .gallery { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; grid-auto-flow: dense; }
+  @media (min-width: 760px) { .gallery { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 16px; } }
+  .gallery button {
+    position: relative; padding: 0; border: 0; border-radius: 14px; overflow: hidden; cursor: zoom-in; background: var(--surface-2);
+  }
+  .gallery button.tall { grid-row: span 2; }
+  .gallery button.wide { grid-column: span 2; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+  .gallery button:hover img { transform: scale(1.04); }
+  .gallery figcaption {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 24px 12px 10px; text-align: left;
+    background: linear-gradient(transparent, rgba(0,0,0,.6)); color: #fff; font: 600 13px/1.3 var(--font-body);
+  }
+  .credit { margin-top: 14px; font-size: 13px; color: var(--ink-soft); }
+  .lightbox {
+    position: fixed; inset: 0; z-index: 50; background: rgba(8,12,18,.92); display: none;
+    align-items: center; justify-content: center; padding: 16px;
+  }
+  .lightbox.on { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 86vh; border-radius: 12px; }
+  .lightbox p { position: absolute; bottom: 18px; left: 16px; right: 16px; text-align: center; color: #fff; margin: 0; font-size: 15px; }
+  .lightbox .x {
+    position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; border: 0;
+    background: rgba(255,255,255,.15); color: #fff; font-size: 24px; cursor: pointer;
+  }
+  @media (prefers-reduced-motion: reduce) { .gallery img { transition: none; } }
+
+  /* Hours + Map */
+  .visit-grid { display: grid; gap: 24px; }
+  @media (min-width: 900px) { .visit-grid { grid-template-columns: .8fr 1.2fr; } }
+  .hours { list-style: none; padding: 0; margin: 0; }
+  .hours li { display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px dashed var(--line); font-size: 15px; }
+  .hours li:last-child { border-bottom: 0; }
+  .hours li.today { font-weight: 700; color: var(--brand); }
+  .contact { display: grid; gap: 14px; margin-top: 22px; }
+  .contact a, .contact div { display: flex; gap: 12px; align-items: center; color: var(--ink); text-decoration: none; font-weight: 500; }
+  .contact svg { width: 20px; height: 20px; color: var(--brand); flex: none; }
+  .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 360px; background: var(--surface); }
+  .map iframe { width: 100%; height: 100%; min-height: 360px; border: 0; display: block; }
+
+  /* Reviews */
+  .reviews-top { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+  .score { display: flex; align-items: center; gap: 18px; }
+  .score .big { font-family: var(--font-title); font-style: italic; font-size: 64px; font-weight: 900; line-height: 1; }
+  .score .meta { color: var(--ink-soft); font-size: 15px; }
+  .g-logo { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--ink); }
+  .reviews { display: grid; gap: 16px; }
+  @media (min-width: 760px) { .reviews { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1040px) { .reviews { grid-template-columns: repeat(3, 1fr); } }
+  .review { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; gap: 12px; }
+  .review header { display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; flex: none; }
+  .review .who { font-weight: 600; line-height: 1.2; }
+  .review .when { font-size: 13px; color: var(--ink-soft); }
+  .review p { margin: 0; color: var(--ink); font-size: 15px; }
+  .review .gmark { margin-left: auto; }
+  .quotes { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+  .quotes span { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 14px; color: var(--ink-soft); }
+
+  /* Facebook */
+  .fb-grid { display: grid; gap: 28px; align-items: start; }
+  @media (min-width: 900px) { .fb-grid { grid-template-columns: 1fr 520px; gap: 48px; } }
+  .fb-frame {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px;
+    display: flex; justify-content: center; overflow: hidden;
+  }
+  .fb-frame iframe { border: 0; width: 100%; max-width: 500px; height: 520px; display: block; }
+  .post-quote {
+    background: var(--surface); border-left: 4px solid #1877f2; border-radius: 12px; padding: 18px 20px; margin-top: 20px;
+  }
+  .post-quote .when { font-size: 13px; color: var(--ink-soft); margin-bottom: 4px; }
+
+  /* Footer */
+  footer { background: #0f4c81; color: rgba(255,255,255,.82); padding: 48px 0 32px; font-size: 15px; }
+  footer .wrap { display: grid; gap: 28px; }
+  @media (min-width: 760px) { footer .wrap { grid-template-columns: 1.4fr 1fr 1fr; } }
+  footer h4 { color: #fff; margin: 0 0 10px; font-size: 15px; }
+  footer a { color: #fff; }
+  footer p { margin: 4px 0; }
+  .fine { grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,.2); padding-top: 20px; font-size: 13px; opacity: .7; }
+
+  /* Mobile call bar */
+  .callbar {
+    position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; display: flex; gap: 8px;
+    padding: 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow);
+  }
+  .callbar .btn { flex: 1; }
+  @media (min-width: 860px) { .callbar { display: none; } }
+  @media (max-width: 859px) { body { padding-bottom: 84px; } }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Bernard's Quik Mart &amp; Laundromat home">
+      <span class="logo-mark">B</span>
+      <span class="logo-name">Bernard's Quik Mart &amp; Laundromat</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#visit">Hours &amp; Map</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#facebook">News</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-call" href="tel:+19024368609">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+      Call
+    </a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero">
+    <img class="hero-bg" src="images/laundromat-interior.jpg" alt="Inside the laundromat: rows of white washers and dryers on a blue and white checkered floor" width="1600" height="1200" fetchpriority="high">
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="status" id="status"><span class="dot"></span><span id="status-text">Open 7 days a week</span></span>
+        <h1><span class="welcome">Welcome to</span>Bernard's Quik Mart &amp; Laundromat</h1>
+        <p class="lead">Your corner store and laundromat, all under one roof. Groceries, lottery, gift cards, pet and camping supplies, plus a bright, clean laundromat so you can shop while your load runs.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Bernard's+Quik+Mart+%26+Laundromat,+126+Bayview+Dr,+Summerside,+PE+C1N+4A1" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+            Get directions
+          </a>
+          <a class="btn btn-ghost" href="#visit">See hours</a>
+        </div>
+        <div class="rating-chip">
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <span><b>4.6</b> from 52 Google reviews</span>
+        </div>
+        <p class="addr">126 Bayview Dr, Summerside, PE</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Store -->
+  <section id="store" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">The Quik Mart</div>
+        <h2>If you need something quick, we've probably got it.</h2>
+        <p>Customers keep telling us they can't believe how much fits on our shelves. Here's some of what you'll find.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+          <h3>Groceries &amp; snacks</h3>
+          <p>Milk, bread, pantry staples, drinks and treats for a quick top-up shop.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg></div>
+          <h3>Lottery</h3>
+          <p>Grab your tickets and check your numbers at the counter.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg></div>
+          <h3>Gift cards</h3>
+          <p>A last-minute present that's always the right size.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="4" r="2"/><circle cx="18" cy="8" r="2"/><circle cx="20" cy="16" r="2"/><path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.8 1.2 3.5 3.5 0 0 0-2.4-2.4A3.5 3.5 0 0 1 6 10.4 5 5 0 0 1 9 10z"/></svg></div>
+          <h3>Pet supplies</h3>
+          <p>Food and treats for the furry members of the family.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 21 14 3M20.5 21 10 3M15.5 21 12 15l-3.5 6M2 21h20"/></svg></div>
+          <h3>Camping supplies</h3>
+          <p>Forgot something for the campsite? Stop in on your way out.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/></svg></div>
+          <h3>Toys &amp; collectibles</h3>
+          <p>Fun finds like NeeDohs, Minecraft gear and seasonal advent calendars, while supplies last.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M7 3v18M17 3v18M2 9h5M2 15h5M17 9h5M17 15h5"/></svg></div>
+          <h3>Movie rentals</h3>
+          <p>A wall of DVDs, from new releases to old favourites. Yes, really!</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+          <h3>Friendly owners</h3>
+          <p>Local and family-run. Need change for the machines? Just ask.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Laundry -->
+  <section id="laundry">
+    <div class="wrap laundry-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:24px">
+          <div class="eyebrow">The Laundromat</div>
+          <h2>Clean, bright, and machines that work.</h2>
+          <p>A comfortable spot to get the laundry done, with the store right next door for a coffee or a snack while you wait.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><div class="n">10</div><div class="l">Washers</div></div>
+          <div class="stat"><div class="n">9</div><div class="l">Dryers</div></div>
+          <div class="stat"><div class="n">4</div><div class="l">Folding tables</div></div>
+        </div>
+        <img class="laundry-photo" src="images/washers.jpg" alt="A row of coin-operated top-load washers in the laundromat" loading="lazy" width="1400" height="788">
+      </div>
+      <div>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Spotless and well kept.</b> Reviewers mention how clean the laundromat and washroom are, again and again.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Room to wait or fold.</b> Tables and seating so you're not standing around.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Dryers that actually dry.</b> Full-length dry cycles, so your clothes come out done.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Shop while you wash.</b> Detergent, dryer sheets, drinks and snacks are a few steps away.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Accessible.</b> Wheelchair-accessible entrance, parking lot and washroom.</span></li>
+        </ul>
+        <div class="tip"><b>Tip:</b> the machines are coin-operated and take loonies and quarters (no toonies). Short on coins? Staff at the counter can make change.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photos -->
+  <section id="photos" class="alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Take a look</div>
+        <h2>Step inside</h2>
+        <p>Packed shelves on one side, a bright laundromat on the other.</p>
+      </div>
+      <div class="gallery" id="gallery">
+        <button class="tall" type="button"><figure style="margin:0;height:100%"><img src="images/laundromat-entrance.jpg" alt="The laundromat entrance with its red LAUNDROMAT sign" loading="lazy"><figcaption>The laundromat entrance</figcaption></figure></button>
+        <button class="wide" type="button"><figure style="margin:0;height:100%"><img src="images/store-aisles.jpg" alt="Store aisles stocked with chips, snacks and groceries, with drink coolers at the back" loading="lazy"><figcaption>Snacks, groceries &amp; cold drinks</figcaption></figure></button>
+        <button class="tall" type="button"><figure style="margin:0;height:100%"><img src="images/store-hallway.jpg" alt="A hallway lined with greeting cards leading into the store" loading="lazy"><figcaption>Greeting cards &amp; more</figcaption></figure></button>
+        <button type="button"><figure style="margin:0;height:100%"><img src="images/laundry-room-sign.jpg" alt="A laundry sink under a sign reading The Laundry Room, wash dry fold repeat" loading="lazy"><figcaption>Wash, dry, fold, repeat</figcaption></figure></button>
+        <button type="button"><figure style="margin:0;height:100%"><img src="images/movie-rentals.jpg" alt="A wall of DVD movie rentals with new release pricing signs" loading="lazy"><figcaption>Movie rentals</figcaption></figure></button>
+      </div>
+      <p class="credit">Photos from the store's Google Maps listing.</p>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="x" type="button" aria-label="Close photo">×</button>
+    <img alt="">
+    <p></p>
+  </div>
+
+  <!-- Visit -->
+  <section id="visit">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Visit us</div>
+        <h2>Hours &amp; location</h2>
+        <p>On Bayview Drive in Summerside, with parking right out front.</p>
+      </div>
+      <div class="visit-grid">
+        <div class="card">
+          <ul class="hours" id="hours">
+            <li data-day="1"><span>Monday</span><span>7 a.m. – 10 p.m.</span></li>
+            <li data-day="2"><span>Tuesday</span><span>7 a.m. – 10 p.m.</span></li>
+            <li data-day="3"><span>Wednesday</span><span>7 a.m. – 10 p.m.</span></li>
+            <li data-day="4"><span>Thursday</span><span>7 a.m. – 10 p.m.</span></li>
+            <li data-day="5"><span>Friday</span><span>7 a.m. – 10 p.m.</span></li>
+            <li data-day="6"><span>Saturday</span><span>7 a.m. – 9 p.m.</span></li>
+            <li data-day="0"><span>Sunday</span><span>8 a.m. – 9 p.m.</span></li>
+          </ul>
+          <div class="contact">
+            <a href="tel:+19024368609"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>(902) 436-8609</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Bernard's+Quik+Mart+%26+Laundromat,+126+Bayview+Dr,+Summerside,+PE+C1N+4A1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>126 Bayview Dr, Summerside, PE C1N 4A1</a>
+            <a href="https://www.facebook.com/p/Bernards-Quik-Mart-61558698375249/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>Bernard's Quik-Mart on Facebook</a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Map showing Bernard's Quik Mart & Laundromat, 126 Bayview Dr, Summerside" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Bernard's+Quik+Mart+%26+Laundromat,+126+Bayview+Dr,+Summerside,+PE+C1N+4A1&ll=46.4047012,-63.8157086&z=16&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="alt">
+    <div class="wrap">
+      <div class="reviews-top">
+        <div class="section-head" style="margin:0">
+          <div class="eyebrow">Google reviews</div>
+          <h2>What our neighbours say</h2>
+        </div>
+        <div class="score">
+          <div class="big">4.6</div>
+          <div>
+            <div class="stars" aria-label="4.6 out of 5 stars">★★★★★</div>
+            <div class="meta">52 reviews on <span class="g-logo">
+              <svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2A12 12 0 0 1 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>Google</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quotes" aria-label="Highlights from reviews">
+        <span>"Fantastic staff and the owners are very friendly"</span>
+        <span>"Very clean and well-run place."</span>
+        <span>"Clean, comfortable, bright, nice decor and machines that work."</span>
+      </div>
+
+      <div class="reviews" id="review-list"></div>
+
+      <div class="cta-row" style="margin-top:28px">
+        <a class="btn btn-primary" href="https://www.google.com/maps?cid=1204673094339784855" target="_blank" rel="noopener">Read all 52 reviews on Google</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps?cid=1204673094339784855" target="_blank" rel="noopener">Leave us a review</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facebook -->
+  <section id="facebook">
+    <div class="wrap fb-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:20px">
+          <div class="eyebrow">Latest from Facebook</div>
+          <h2>New stock, specials &amp; store news</h2>
+          <p>We post new arrivals and limited-supply items on our Facebook page first. Follow along so you don't miss out.</p>
+        </div>
+        <a class="btn btn-primary" href="https://www.facebook.com/p/Bernards-Quik-Mart-61558698375249/" target="_blank" rel="noopener" style="background:#1877f2;color:#fff">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+          Follow on Facebook
+        </a>
+        <div class="post-quote">
+          <div class="when">Recent post</div>
+          We have NeeDohs, advent calendars and Minecraft available. Limited supply!
+        </div>
+      </div>
+      <div class="fb-frame">
+        <iframe title="Bernard's Quik-Mart Facebook page" loading="lazy" allow="encrypted-media"
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fp%2FBernards-Quik-Mart-61558698375249%2F&tabs=timeline&width=500&height=520&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h4>Bernard's Quik Mart &amp; Laundromat</h4>
+      <p>A convenience store with a little bit more.</p>
+      <p>126 Bayview Dr, Summerside, PE C1N 4A1</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p><a href="tel:+19024368609">(902) 436-8609</a></p>
+      <p><a href="https://www.facebook.com/p/Bernards-Quik-Mart-61558698375249/" target="_blank" rel="noopener">Facebook</a></p>
+    </div>
+    <div>
+      <h4>Hours</h4>
+      <p>Mon–Fri 7 a.m. – 10 p.m.</p>
+      <p>Sat 7 a.m. – 9 p.m.</p>
+      <p>Sun 8 a.m. – 9 p.m.</p>
+    </div>
+    <div class="fine">© <span id="yr">2026</span> Bernard's Quik Mart &amp; Laundromat · Summerside, Prince Edward Island</div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-primary" href="tel:+19024368609">Call</a>
+  <a class="btn btn-accent" href="https://www.google.com/maps/dir/?api=1&destination=Bernard's+Quik+Mart+%26+Laundromat,+126+Bayview+Dr,+Summerside,+PE+C1N+4A1" target="_blank" rel="noopener">Directions</a>
+</div>
+
+<script>
+  // Reviews from the Google Business listing (Google Maps).
+  const REVIEWS = [
+    { name: "Rudy Six", when: "Local Guide · 2 months ago", stars: 5,
+      text: "Fantastic & clean laundry facilities and a well stocked mid-size store. Can't believe how many different items they managed to fit into the shelves. Well done!" },
+    { name: "Galaxy Diamond", when: "2 months ago", stars: 5,
+      text: "I never not found what I was looking for. Great pricing. Friendly staff and very clean. You never know what you might find." },
+    { name: "Danielle Hayashi", when: "2 months ago", stars: 5,
+      text: "There were 10 washing machines & 9 dryers. Place was bright & clean. The space had 4 tables & 8 chairs, so plenty of space to wait around or fold your laundry. The other part of the building is a convenience store, so easy to grab stuff while you wait." },
+    { name: "Al Joseph", when: "Local Guide · 3 years ago", stars: 5,
+      text: "Clean, comfortable, bright, nice decor and machines that work. The owner was so very helpful with giving me correct change. The variety of items to purchase at this store is amazing. So much there and if you need something quick he probably has it. I am giving it a solid 12 out of ten dryer sheets." },
+    { name: "Joban Sangha", when: "5 years ago", stars: 5,
+      text: "One of the big laundromats in Summerside. Neat and clean." }
+  ];
+  const COLORS = ["#0f4c81", "#c2581f", "#1f8a4c", "#7b3fa0", "#b3412e"];
+  const list = document.getElementById("review-list");
+  REVIEWS.forEach((r, i) => {
+    const el = document.createElement("article");
+    el.className = "review";
+    el.innerHTML = `
+      <header>
+        <div class="avatar" style="background:${COLORS[i % COLORS.length]}">${r.name[0]}</div>
+        <div><div class="who"></div><div class="when"></div></div>
+        <svg class="gmark" width="18" height="18" viewBox="0 0 48 48" aria-label="Google review"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 8 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2A12 12 0 0 1 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
+      </header>
+      <div class="stars" aria-label="${r.stars} out of 5 stars">${"★".repeat(r.stars)}</div>
+      <p></p>`;
+    el.querySelector(".who").textContent = r.name;
+    el.querySelector(".when").textContent = r.when;
+    el.querySelector("p").textContent = r.text;
+    list.appendChild(el);
+  });
+
+  // Open / closed status in Summerside's time zone (Atlantic).
+  const HOURS = { 0: [8, 21], 1: [7, 22], 2: [7, 22], 3: [7, 22], 4: [7, 22], 5: [7, 22], 6: [7, 21] };
+  const fmt = h => (h % 12 || 12) + (h < 12 ? " a.m." : " p.m.");
+  try {
+    const parts = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Halifax", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23" }).formatToParts(new Date());
+    const get = t => parts.find(p => p.type === t).value;
+    const day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(get("weekday"));
+    const now = Number(get("hour")) + Number(get("minute")) / 60;
+    const [open, close] = HOURS[day];
+    const status = document.getElementById("status");
+    const text = document.getElementById("status-text");
+    if (now >= open && now < close) {
+      status.classList.add("open");
+      text.textContent = `Open now · until ${fmt(close)}`;
+    } else {
+      status.classList.add("closed");
+      const nextDay = now < open ? day : (day + 1) % 7;
+      const label = now < open ? "today" : ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][nextDay];
+      text.textContent = `Closed · opens ${fmt(HOURS[nextDay][0])} ${label}`;
+    }
+    const li = document.querySelector(`#hours li[data-day="${day}"]`);
+    if (li) li.classList.add("today");
+  } catch (e) { /* keep default label */ }
+  // Photo lightbox
+  const lb = document.getElementById("lightbox");
+  const lbImg = lb.querySelector("img");
+  const lbCap = lb.querySelector("p");
+  document.querySelectorAll("#gallery button").forEach(b => b.addEventListener("click", () => {
+    const img = b.querySelector("img");
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lbCap.textContent = b.querySelector("figcaption").textContent;
+    lb.classList.add("on");
+    lb.querySelector(".x").focus();
+  }));
+  const closeLb = () => lb.classList.remove("on");
+  lb.addEventListener("click", e => { if (e.target !== lbImg) closeLb(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
