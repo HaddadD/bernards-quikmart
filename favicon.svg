@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Matches the header logo mark: navy italic B on yellow with a navy rim -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#f7c51e" stroke="#0f4c81" stroke-width="4"/>
+  <text x="33" y="47" text-anchor="middle" transform="skewX(-10) translate(8 0)"
+    font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="40" fill="#0f4c81">B</text>
+</svg>
