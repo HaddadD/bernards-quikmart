@@ -115,6 +115,12 @@
     width: 36px; height: 36px; border-radius: 10px; background: #f7c51e; color: #0f4c81; box-shadow: inset 0 0 0 2px #0f4c81;
     display: grid; place-items: center; font-family: var(--font-title); font-style: italic; font-size: 22px; font-weight: 900;
   }
+  .logo-text { display: flex; flex-direction: column; gap: 1px; }
+  .status { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--ink-soft); line-height: 1.2; }
+  .status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-soft); flex: none; }
+  .status.open .dot { background: var(--ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent); }
+  .status.open { color: var(--ok); }
+  .status.closed .dot { background: var(--closed); }
   .logo-name { font-weight: 800; font-size: 15px; line-height: 1.2; white-space: nowrap; }
   @media (min-width: 560px) { .logo-name { font-size: 17px; } }
   .nav .nav-call { display: none; }
@@ -155,16 +161,8 @@
       linear-gradient(90deg, rgba(18,14,12,.7) 0%, rgba(18,14,12,.1) 70%);
   }
   .hero-content { max-width: 760px; }
-  .status {
-    display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
-    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); backdrop-filter: blur(6px);
-    font-size: 14px; font-weight: 600; color: #fff;
-  }
-  .status .dot { width: 8px; height: 8px; border-radius: 50%; background: #c9d5e2; }
-  .status.open .dot { background: #4cc983; box-shadow: 0 0 0 4px rgba(76,201,131,.25); }
-  .status.closed .dot { background: #ff8a75; }
   .hero h1 {
-    font-size: clamp(40px, 7.6vw, 84px); margin: 18px 0 18px; color: #0f4c81;
+    font-size: clamp(40px, 7.6vw, 84px); margin: 0 0 18px; color: #0f4c81;
     -webkit-text-stroke: .09em #fff; paint-order: stroke fill;
     filter: drop-shadow(0 4px 18px rgba(0,0,0,.45));
   }
@@ -289,17 +287,15 @@
   .quotes span { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 14px; color: var(--ink-soft); }
 
   /* Facebook */
-  .fb-grid { display: grid; gap: 28px; align-items: start; }
-  @media (min-width: 900px) { .fb-grid { grid-template-columns: 1fr 520px; gap: 48px; } }
-  .fb-frame {
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px;
-    display: flex; justify-content: center; overflow: hidden;
+  .fb-head { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-end; justify-content: space-between; margin-bottom: 32px; }
+  .fb-head .section-head { margin: 0; }
+  .fb-posts { display: grid; gap: 20px; grid-template-columns: 1fr; justify-items: center; align-items: start; }
+  @media (min-width: 1130px) { .fb-posts { grid-template-columns: repeat(3, 1fr); } }
+  .fb-card {
+    width: 342px; max-width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; box-shadow: var(--shadow);
   }
-  .fb-frame iframe { border: 0; width: 100%; max-width: 500px; height: 520px; display: block; }
-  .post-quote {
-    background: var(--surface); border-left: 4px solid #1877f2; border-radius: 12px; padding: 18px 20px; margin-top: 20px;
-  }
-  .post-quote .when { font-size: 13px; color: var(--ink-soft); margin-bottom: 4px; }
+  .fb-card iframe { display: block; width: 340px; max-width: 100%; border: 0; }
 
   /* Footer */
   footer { background: #0f4c81; color: rgba(255,255,255,.82); padding: 48px 0 32px; font-size: 15px; }
@@ -328,7 +324,10 @@
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Bernard's Quik Mart &amp; Laundromat home">
       <span class="logo-mark">B</span>
-      <span class="logo-name">Bernard's Quik Mart &amp; Laundromat</span>
+      <span class="logo-text">
+        <span class="logo-name">Bernard's Quik Mart &amp; Laundromat</span>
+        <span class="status" id="status"><span class="dot" aria-hidden="true"></span><span id="status-text">Open 7 days a week</span></span>
+      </span>
     </a>
     <nav class="nav-links" aria-label="Sections">
       <a href="#visit">Hours &amp; Map</a>
@@ -348,7 +347,6 @@
     <img class="hero-bg" src="images/laundromat-interior.jpg" alt="Inside the laundromat: rows of white washers and dryers on a blue and white checkered floor" width="1600" height="1200" fetchpriority="high">
     <div class="wrap">
       <div class="hero-content">
-        <span class="status" id="status"><span class="dot"></span><span id="status-text">Open 7 days a week</span></span>
         <h1><span class="welcome">Welcome to</span>Bernard's Quik Mart &amp; Laundromat</h1>
         <p class="lead">Your corner store and laundromat, all under one roof. Groceries, lottery, gift cards, pet and camping supplies, plus a bright, clean laundromat so you can shop while your load runs.</p>
         <div class="cta-row">
@@ -407,14 +405,43 @@
           <p>Fun finds like NeeDohs, Minecraft gear and seasonal advent calendars, while supplies last.</p>
         </div>
         <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M7 3v18M17 3v18M2 9h5M2 15h5M17 9h5M17 15h5"/></svg></div>
-          <h3>Movie rentals</h3>
-          <p>A wall of DVDs, from new releases to old favourites. Yes, really!</p>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m2 7 10 6 10-6"/></svg></div>
+          <h3>Greeting cards</h3>
+          <p>Cards for every celebration: birthdays, graduations, anniversaries and more.</p>
         </div>
         <div class="card">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
           <h3>Friendly owners</h3>
           <p>Local and family-run. Need change for the machines? Just ask.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facebook -->
+  <section id="facebook">
+    <div class="wrap">
+      <div class="fb-head">
+        <div class="section-head">
+          <div class="eyebrow">Latest from Facebook</div>
+          <h2>New stock, specials &amp; store news</h2>
+          <p>We post new arrivals and limited-supply items on our Facebook page first. Follow along so you don't miss out.</p>
+        </div>
+        <a class="btn btn-primary" href="https://www.facebook.com/p/Bernards-Quik-Mart-61558698375249/" target="_blank" rel="noopener" style="background:#1877f2;color:#fff">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+          Follow on Facebook
+        </a>
+      </div>
+      <!-- Latest posts: swap these links when new posts go up -->
+      <div class="fb-posts">
+        <div class="fb-card">
+          <iframe title="Facebook post: NeeDohs, advent calendars and Minecraft are in. Limited supply!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122238430640289945&amp;show_text=true&amp;width=340" width="340" height="302" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
+        </div>
+        <div class="fb-card">
+          <iframe title="Facebook post: We have some more Squishies in!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122237819840289945&amp;show_text=true&amp;width=340" width="340" height="590" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
+        </div>
+        <div class="fb-card">
+          <iframe title="Facebook post: And more!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122235829676289945&amp;show_text=true&amp;width=340" width="340" height="590" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
         </div>
       </div>
     </div>
@@ -461,8 +488,7 @@
         <button class="tall" type="button"><figure style="margin:0;height:100%"><img src="images/laundromat-entrance.jpg" alt="The laundromat entrance with its red LAUNDROMAT sign" loading="lazy"><figcaption>The laundromat entrance</figcaption></figure></button>
         <button class="wide" type="button"><figure style="margin:0;height:100%"><img src="images/store-aisles.jpg" alt="Store aisles stocked with chips, snacks and groceries, with drink coolers at the back" loading="lazy"><figcaption>Snacks, groceries &amp; cold drinks</figcaption></figure></button>
         <button class="tall" type="button"><figure style="margin:0;height:100%"><img src="images/store-hallway.jpg" alt="A hallway lined with greeting cards leading into the store" loading="lazy"><figcaption>Greeting cards &amp; more</figcaption></figure></button>
-        <button type="button"><figure style="margin:0;height:100%"><img src="images/laundry-room-sign.jpg" alt="A laundry sink under a sign reading The Laundry Room, wash dry fold repeat" loading="lazy"><figcaption>Wash, dry, fold, repeat</figcaption></figure></button>
-        <button type="button"><figure style="margin:0;height:100%"><img src="images/movie-rentals.jpg" alt="A wall of DVD movie rentals with new release pricing signs" loading="lazy"><figcaption>Movie rentals</figcaption></figure></button>
+        <button class="wide" type="button"><figure style="margin:0;height:100%"><img src="images/laundry-room-sign.jpg" alt="A laundry sink under a sign reading The Laundry Room, wash dry fold repeat" loading="lazy" style="object-position:center 8%"><figcaption>Wash, dry, fold, repeat</figcaption></figure></button>
       </div>
       <p class="credit">Photos from the store's Google Maps listing.</p>
     </div>
@@ -540,30 +566,6 @@
     </div>
   </section>
 
-  <!-- Facebook -->
-  <section id="facebook">
-    <div class="wrap fb-grid">
-      <div>
-        <div class="section-head" style="margin-bottom:20px">
-          <div class="eyebrow">Latest from Facebook</div>
-          <h2>New stock, specials &amp; store news</h2>
-          <p>We post new arrivals and limited-supply items on our Facebook page first. Follow along so you don't miss out.</p>
-        </div>
-        <a class="btn btn-primary" href="https://www.facebook.com/p/Bernards-Quik-Mart-61558698375249/" target="_blank" rel="noopener" style="background:#1877f2;color:#fff">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
-          Follow on Facebook
-        </a>
-        <div class="post-quote">
-          <div class="when">Recent post</div>
-          We have NeeDohs, advent calendars and Minecraft available. Limited supply!
-        </div>
-      </div>
-      <div class="fb-frame">
-        <iframe title="Bernard's Quik-Mart Facebook page" loading="lazy" allow="encrypted-media"
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fp%2FBernards-Quik-Mart-61558698375249%2F&tabs=timeline&width=500&height=520&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"></iframe>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -643,7 +645,7 @@
     } else {
       status.classList.add("closed");
       const nextDay = now < open ? day : (day + 1) % 7;
-      const label = now < open ? "today" : ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"][nextDay];
+      const label = now < open ? "today" : "tomorrow";
       text.textContent = `Closed · opens ${fmt(HOURS[nextDay][0])} ${label}`;
     }
     const li = document.querySelector(`#hours li[data-day="${day}"]`);
