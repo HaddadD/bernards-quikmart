@@ -134,9 +134,8 @@
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
     padding: 12px 20px; border-radius: 999px; font-weight: 600; font-size: 15px;
     text-decoration: none; border: 1.5px solid transparent; white-space: nowrap;
-    transition: transform .15s ease, background .15s ease;
+    transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
   }
-  .btn:active { transform: scale(.97); }
   .btn-primary { background: var(--brand); color: var(--brand-ink); }
   .btn-accent { background: var(--accent); color: var(--accent-ink); }
   .btn-ghost { border-color: var(--line); color: var(--ink); background: var(--surface); }
@@ -146,10 +145,10 @@
   /* Hero */
   .hero {
     position: relative; isolation: isolate; color: #fff; overflow: hidden;
-    min-height: min(88vh, 760px); display: flex; align-items: flex-end;
-    padding: 120px 0 56px;
+    min-height: min(78vh, 680px); display: flex; align-items: center;
+    padding: 40px 0 56px;
   }
-  @media (min-width: 900px) { .hero { padding: 160px 0 80px; align-items: center; } }
+  @media (min-width: 900px) { .hero { padding: 56px 0 72px; } }
   .hero-bg {
     position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; max-width: none;
     object-fit: cover; object-position: center 55%;
@@ -315,7 +314,42 @@
   @media (min-width: 860px) { .callbar { display: none; } }
   @media (max-width: 859px) { body { padding-bottom: 84px; } }
 
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+
+  /* Button hover: each button darkens to a deeper shade of its own colour and lifts a little */
+  .btn-fb { background: #1877f2; color: #fff; }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  @media (hover: hover) {
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 30, 50, .18); }
+    .btn-primary:hover { background: color-mix(in srgb, var(--brand) 78%, #000); }
+    .btn-accent:hover, .hero .btn-primary:hover { background: color-mix(in srgb, var(--accent) 86%, #000); }
+    .btn-ghost:hover { background: color-mix(in srgb, var(--surface) 92%, #000); border-color: color-mix(in srgb, var(--line) 80%, #000); }
+    .hero .btn-ghost:hover { background: #fff; border-color: #fff; color: #0f4c81; }
+    .btn-fb:hover { background: #0b4fb3; }
+  }
+  .btn:active { transform: translateY(0) scale(.97); box-shadow: none; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } .btn:hover { transform: none; } }
+  /* Entrance animation on load */
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  @keyframes settle { from { transform: scale(1.08); } to { transform: scale(1); } }
+  @keyframes drop { from { opacity: 0; transform: translateY(-100%); } to { opacity: 1; transform: none; } }
+  .nav { animation: drop .6s cubic-bezier(.2,.8,.2,1) both; }
+  .hero-bg { animation: settle 2.4s cubic-bezier(.2,.8,.2,1) both; }
+  .hero-content > *, .hero h1 > * { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }
+  .hero h1 { animation: rise .9s cubic-bezier(.2,.8,.2,1) .25s both; }
+  .hero h1 .welcome { animation-delay: .15s; }
+  .hero .lead { animation-delay: .45s; }
+  .hero .cta-row { animation-delay: .6s; }
+  .hero .rating-chip { animation-delay: .75s; }
+  .hero .addr { animation-delay: .85s; }
+
+  /* Scroll reveal: only hides things once the script has marked the page */
+  .reveal-on .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); transition-delay: var(--d, 0s); }
+  .reveal-on .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav, .hero-bg, .hero-content > *, .hero h1, .hero h1 > * { animation: none; }
+    .reveal-on .reveal { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -427,7 +461,7 @@
           <h2>New stock, specials &amp; store news</h2>
           <p>We post new arrivals and limited-supply items on our Facebook page first. Follow along so you don't miss out.</p>
         </div>
-        <a class="btn btn-primary" href="https://www.facebook.com/p/Bernards-Quik-Mart-61558698375249/" target="_blank" rel="noopener" style="background:#1877f2;color:#fff">
+        <a class="btn btn-fb" href="https://www.facebook.com/p/Bernards-Quik-Mart-61558698375249/" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
           Follow on Facebook
         </a>
@@ -665,6 +699,17 @@
   const closeLb = () => lb.classList.remove("on");
   lb.addEventListener("click", e => { if (e.target !== lbImg) closeLb(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeLb(); });
+
+  // Scroll reveal: each section below the hero fades up as one piece
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+    const targets = document.querySelectorAll("main > section:not(.hero) > .wrap");
+    targets.forEach(el => el.classList.add("reveal"));
+    document.documentElement.classList.add("reveal-on");
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    }), { rootMargin: "0px 0px -10% 0px", threshold: 0.05 });
+    targets.forEach(el => io.observe(el));
+  }
 
   document.getElementById("yr").textContent = new Date().getFullYear();
 </script>
