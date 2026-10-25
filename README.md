@@ -2,7 +2,7 @@
 
 Landing page for Bernard's Quik Mart & Laundromat, 126 Bayview Dr, Summerside, PEI.
 
-**Live site:** https://haddadd.github.io/bernards-quikmart/
+**Live site:** https://bernardspei.ca
 
 A single static page (`index.html`) with photos in `images/`. No build step. Open it directly, or serve the folder:
 
