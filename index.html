@@ -167,7 +167,7 @@
   }
 
   /* Store grid */
-  .grid { display: grid; gap: 16px; grid-template-columns: 1fr; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); }
   @media (min-width: 560px) { .grid { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 900px) { .grid { grid-template-columns: repeat(4, 1fr); } }
   .card {
@@ -268,6 +268,29 @@
     overflow: hidden; box-shadow: var(--shadow);
   }
   .fb-card iframe { display: block; width: 340px; max-width: 100%; border: 0; }
+
+  /* Phones only: tighter store cards, swipeable rows for Facebook posts and reviews */
+  .swipe-hint { display: none; margin: 0 0 10px; font-size: 13.5px; font-weight: 600; color: var(--ink-soft); }
+  @media (max-width: 559px) {
+    .grid { gap: 10px; }
+    .grid .card { padding: 14px; }
+    .grid .icon { width: 36px; height: 36px; margin-bottom: 10px; }
+    .grid .icon svg { width: 18px; height: 18px; }
+    .grid .card h3 { font-size: 15.5px; line-height: 1.25; margin-bottom: 4px; }
+    .grid .card p { font-size: 13.5px; line-height: 1.45; }
+  }
+  @media (max-width: 759px) {
+    .fb-posts, .reviews {
+      display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+      margin-inline: -16px; padding: 4px 16px 14px; scroll-padding-inline: 16px; scrollbar-width: none;
+    }
+    .fb-posts::-webkit-scrollbar, .reviews::-webkit-scrollbar { display: none; }
+    .fb-posts { align-items: flex-start; }
+    .fb-card { flex: 0 0 auto; width: 302px; scroll-snap-align: start; }
+    .fb-card iframe { width: 300px; }
+    .reviews .review { flex: 0 0 82%; scroll-snap-align: start; }
+    .swipe-hint { display: block; }
+  }
 
   /* Contact form */
   .msg-grid { display: grid; gap: 28px; align-items: start; }
@@ -479,15 +502,16 @@
         </a>
       </div>
       <!-- Latest posts: swap these links when new posts go up -->
+      <p class="swipe-hint" aria-hidden="true">Swipe for more posts →</p>
       <div class="fb-posts">
         <div class="fb-card">
-          <iframe title="Facebook post: NeeDohs, advent calendars and Minecraft are in. Limited supply!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122238430640289945&amp;show_text=true&amp;width=340" width="340" height="302" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
+          <iframe title="Facebook post: NeeDohs, advent calendars and Minecraft are in. Limited supply!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122238430640289945&amp;show_text=true&amp;width=340" data-mobile-height="279" width="340" height="302" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
         </div>
         <div class="fb-card">
-          <iframe title="Facebook post: We have some more Squishies in!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122237819840289945&amp;show_text=true&amp;width=340" width="340" height="590" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
+          <iframe title="Facebook post: We have some more Squishies in!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122237819840289945&amp;show_text=true&amp;width=340" data-mobile-height="590" width="340" height="590" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
         </div>
         <div class="fb-card">
-          <iframe title="Facebook post: And more!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122235829676289945&amp;show_text=true&amp;width=340" width="340" height="590" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
+          <iframe title="Facebook post: And more!" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D122235829676289945&amp;show_text=true&amp;width=340" data-mobile-height="590" width="340" height="590" loading="lazy" scrolling="no" allow="encrypted-media; clipboard-write; picture-in-picture"></iframe>
         </div>
       </div>
     </div>
@@ -503,7 +527,7 @@
         </div>
         <div class="stat-row">
           <div class="stat"><div class="n">10</div><div class="l">Washers</div></div>
-          <div class="stat"><div class="n">9</div><div class="l">Dryers</div></div>
+          <div class="stat"><div class="n">10</div><div class="l">Dryers</div></div>
           <div class="stat"><div class="n">4</div><div class="l">Folding tables</div></div>
         </div>
         <img class="laundry-photo" src="images/washers.jpg" alt="A row of coin-operated top-load washers in the laundromat" loading="lazy" width="1400" height="788">
@@ -599,6 +623,7 @@
         <span>"Clean, comfortable, bright, nice decor and machines that work."</span>
       </div>
 
+      <p class="swipe-hint" aria-hidden="true">Swipe for more reviews →</p>
       <div class="reviews" id="review-list"></div>
 
       <div class="cta-row" style="margin-top:28px">
@@ -769,6 +794,14 @@
     // Stay hidden when focus jumps straight to another field (e.g. Name to Email)
     if (isField(e.target) && !isField(e.relatedTarget)) document.documentElement.classList.remove("typing");
   });
+
+  // Phones: load narrower Facebook embeds so the next post peeks in from the side
+  if (matchMedia("(max-width: 759px)").matches) {
+    document.querySelectorAll(".fb-card iframe").forEach(f => {
+      f.src = f.src.replace("width=340", "width=300");
+      f.width = 300; f.height = f.dataset.mobileHeight;
+    });
+  }
 
   // Photo lightbox
   const lb = document.getElementById("lightbox");
